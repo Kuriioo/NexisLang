@@ -4,7 +4,6 @@
 
 namespace Liquid 
 {
-  class VM;
   enum class ValueType
   {
     NUMBER = 0,
@@ -17,5 +16,6 @@ namespace Liquid
     Value(ValueType type);
   };
 };
+
 
 #endif
