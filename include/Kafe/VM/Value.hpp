@@ -1,3 +1,8 @@
+/**
+ * @file Value.hpp 
+ * @author Kurio
+*/
+
 #ifndef _KAFE_VALUE_HPP_
 #define _KAFE_VALUE_HPP_
 

@@ -1,3 +1,8 @@
+/**
+ * @file Compiler.hpp 
+ * @author Kurio
+*/
+
 #ifndef _KAFE_COMPILER_HPP_
 #define _KAFE_COMPILER_HPP_
 
