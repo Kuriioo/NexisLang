@@ -15,6 +15,7 @@ namespace Kafe
     NUMBER = 0,
     STRING = 1
   };
+  
   class Value
   {
   public:

@@ -7,6 +7,9 @@
 #define _KAFE_TOKEN_HPP_
 
 
+#include <string>
+
+
 namespace Kafe
 {
   enum class TokenType
@@ -14,9 +17,11 @@ namespace Kafe
     NUMBER,
     STRING
   };
+  
   struct Token
   {
     TokenType type;
+    
     Token(TokenType type) : type(type) {};
   };
 };

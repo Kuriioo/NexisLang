@@ -14,7 +14,7 @@ namespace Kafe
     int Repl::run()
     {
         print_header();
-        return 241;
+        return 0;
     };
     void Repl::print_header()
     {

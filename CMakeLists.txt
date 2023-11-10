@@ -13,4 +13,6 @@ set(SOURCES
     src/Kafe/Compiler/Token.cpp)
 
 add_executable(Kafe ${SOURCES})
+add_subdirectory(lib/clipp EXCLUDE_FROM_ALL)
+target_link_libraries(Kafe PUBLIC clipp)
 target_include_directories(Kafe PRIVATE include)

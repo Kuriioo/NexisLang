@@ -16,10 +16,13 @@ namespace Kafe
   {
   public:
     int run();
+    
     void exit(int code);
   private:
     int m_exit_code;
+    
     void init();
+    
     Value *pop();
     Value *push();
   };

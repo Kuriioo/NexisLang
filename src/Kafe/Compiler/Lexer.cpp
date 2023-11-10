@@ -13,6 +13,12 @@
 namespace Kafe
 {
   Lexer::Lexer() {};
+  
+  void Lexer::add(const std::string& s)
+  {
+    
+  };
+
   std::vector<Token>& Lexer::tokens()
   {
     return m_tokens;

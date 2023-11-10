@@ -11,6 +11,7 @@
 
 
 #include <Kafe/Compiler/Token.hpp>
+#include <string>
 
 
 namespace Kafe
@@ -19,6 +20,9 @@ namespace Kafe
   {
   public:
     Lexer();
+
+    void add(const std::string& s);
+    
     std::vector<Token>& tokens();
   private:
     std::vector<Token> m_tokens;

@@ -3,51 +3,57 @@
  * @author Kurio
 */
 
+#include <clipp.h>
+
 #include <Kafe/VM/VM.hpp>
 #include <Kafe/Kafe.hpp>
 #include <CLI/Repl.hpp>
 
 #include <iostream>
+#include <cstring>
 
 
 int main (int argc, char **argv)
 {
+  using namespace clipp;
   int result { 0 };
-  enum cmd_mode
+  enum class mode
   {
-    COMPILE,
-    REPL,
-    NONE
+    compile,
+    repl,
+    help
   };
-  cmd_mode mode { cmd_mode::NONE };
-  const std::string arguments[] 
+  mode select { mode::repl };
+  std::string output;
+  auto cli = (
+        option("-H", "--help").set(select, mode::help).doc("Display help message."),
+        option("-o") & value("output format", output)
+    );
+  auto fmt = doc_formatting {}
+    .first_column(8)
+    .doc_column(30)
+    .indent_size(2)
+    .split_alternatives(true)
+    .merge_alternative_flags_with_common_prefix(true);
+  if (parse(argc, argv, cli))
   {
-    "--help", // show help message
-    "-o",     // sets output file
-    "-c",     // compile program
-  };
-  //TODO: catch arguments in the command
-  switch (mode)
-  {
-    case cmd_mode::NONE:
+    switch (select)
     {
-      std::printf(
-       "Kafe Version %i.%i\n"
-       "kafe --help \t; to show the help message.\n",
-       KAFE_VERSION_MAJOR,
-       KAFE_VERSION_MINOR
-      );
-      break;
-    };
-    case cmd_mode::COMPILE:
-    {
-      break;
-    };
-    case cmd_mode::REPL:
-    {
-      Kafe::Repl repl { };
-      result = repl.run();    
-      break;
+      case mode::help:
+      {
+        std::cout << "help\n";
+        break; 
+      };
+      case mode::compile:
+      {
+        break;
+      };
+      case mode::repl:
+      {
+        Kafe::Repl repl { };
+        result = repl.run();    
+        break;
+      };
     };
   };
   return result;
