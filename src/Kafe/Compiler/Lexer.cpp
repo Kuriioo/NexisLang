@@ -29,7 +29,7 @@ namespace Kafe
 
   void Lexer::next_line()
   {
-    while (Lexer::peek() != '\n')
+    while (peek() != '\n')
       next_char();
   };
 
