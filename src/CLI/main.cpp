@@ -8,9 +8,12 @@
 #include <Kafe/VM/VM.hpp>
 #include <Kafe/Kafe.hpp>
 #include <CLI/Repl.hpp>
+#include <Kafe/Compiler/Lexer.hpp>
 
+#include <cstdint>
+#include <filesystem>
+#include <fstream>
 #include <iostream>
-#include <cstring>
 
 
 int main (int argc, char **argv)
@@ -19,16 +22,18 @@ int main (int argc, char **argv)
   int result { 0 };
   enum class mode
   {
-    compile,
-    repl,
-    help
+    REPL,
+    HELP
   };
-  mode select { mode::repl };
-  std::string output;
+  mode select { mode::REPL };
+  bool buildDebug { true };
+  std::string file, output;
   auto cli = (
-        option("-H", "--help").set(select, mode::help).doc("Display help message."),
-        option("-o") & value("output format", output)
-    );
+        option("-H", "--help").set(select, mode::HELP).doc("Display help message."),
+        option("--release").set(buildDebug, false).doc("Build a release version."),
+        option("-o") & value("output", output),
+        value("file", file) 
+  );
   auto fmt = doc_formatting {}
     .first_column(8)
     .doc_column(30)
@@ -39,22 +44,27 @@ int main (int argc, char **argv)
   {
     switch (select)
     {
-      case mode::help:
+      case mode::HELP:
       {
         std::cout << "help\n";
         break; 
       };
-      case mode::compile:
-      {
-        break;
-      };
-      case mode::repl:
+      case mode::REPL:
       {
         Kafe::Repl repl { };
         result = repl.run();    
         break;
       };
     };
+  };
+  if (std::filesystem::exists(file))
+  {
+    Kafe::Lexer lexer {};
+    lexer.read(file);
+  }
+  else
+  {
+    std::cout << "not input file found\n";
   };
   return result;
 }

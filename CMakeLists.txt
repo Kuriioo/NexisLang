@@ -12,6 +12,9 @@ set(SOURCES
     src/Kafe/Compiler/Lexer.cpp
     src/Kafe/Compiler/Token.cpp)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED On)
+
 add_executable(Kafe ${SOURCES})
 add_subdirectory(lib/clipp EXCLUDE_FROM_ALL)
 target_link_libraries(Kafe PUBLIC clipp)
