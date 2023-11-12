@@ -1,8 +1,0 @@
-import "std::io" // import input output package 
-
-// define main program function
-fn main (): int -> {
-  print("Hello, world!\n");
-  // exit code (0 = successful)
-  return 0;
-}
