@@ -4,13 +4,9 @@ project(Nexis)
 
 set(SOURCES 
     src/CLI/main.cpp
-    src/CLI/Repl.cpp
     src/Nexis/Nexis.cpp 
-    src/Nexis/VM/VM.cpp
-    src/Nexis/VM/Value.cpp
-    src/Nexis/Compiler/Compiler.cpp
-    src/Nexis/Compiler/Lexer.cpp
-    src/Nexis/Compiler/Token.cpp)
+    src/Nexis/AST/Lexer.cpp
+    src/Nexis/AST/Token.cpp)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED On)
