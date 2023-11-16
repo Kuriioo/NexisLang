@@ -1,6 +1,6 @@
 /**
  * @file Lexer.cpp 
- * @author Kurio
+ * @author Kuriioo
 */
 
 #include <Nexis/AST/Lexer.hpp>
@@ -13,11 +13,13 @@ namespace Nexis {
 
   
   bool Lexer::is_operator(std::string str) {
+    if (str.empty()) return false;
     return true;
   };
 
 
   bool Lexer::is_identifier(std::string str) {
+    if (str.empty()) return false;
     return false;
   };
 
@@ -28,7 +30,9 @@ namespace Nexis {
 
 
   void Lexer::skip_comment() {
-
+    if (current_pointer[-1] == '/' && current_pointer[0] == '/') {
+      std::cout << "Eezjgezrh\n";
+    };
   };
 
 
@@ -38,7 +42,7 @@ namespace Nexis {
 
 
   void Lexer::lex_identifier() {
-
+    
   };
 
 

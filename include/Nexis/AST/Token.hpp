@@ -1,6 +1,6 @@
 /**
  * @file Token.hpp 
- * @author Kurio
+ * @author Kuriioo
 */
 
 #ifndef NEXIS_TOKEN_HPP

@@ -1,5 +1,5 @@
 /**
  * @file Nexis.cpp 
- * @author Kurio
+ * @author Kuriioo
 */
 

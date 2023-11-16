@@ -1,6 +1,6 @@
 /**
  * @file Token.cpp 
- * @author Kurio
+ * @author Kuriio
 */
 
 #include <Nexis/AST/Token.hpp>

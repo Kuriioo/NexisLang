@@ -6,6 +6,7 @@ set(SOURCES
     src/CLI/main.cpp
     src/Nexis/Nexis.cpp 
     src/Nexis/AST/Lexer.cpp
+    src/Nexis/AST/LexerState.cpp
     src/Nexis/AST/Token.cpp)
 
 set(CMAKE_CXX_STANDARD 17)

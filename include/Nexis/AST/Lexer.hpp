@@ -1,6 +1,6 @@
 /**
  * @file Lexer.hpp 
- * @author Kurio
+ * @author Kuriioo
 */
 
 #ifndef NEXIS_LEXER_HPP

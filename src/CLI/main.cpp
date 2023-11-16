@@ -1,6 +1,6 @@
 /**
  * @file main.cpp
- * @author Kurio
+ * @author Kuriioo
 */
 
 #include <clipp.h>
